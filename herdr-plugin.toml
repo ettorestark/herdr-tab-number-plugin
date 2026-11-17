@@ -1,0 +1,35 @@
+id = "tab-number"
+name = "Tab Number"
+version = "0.1.0"
+min_herdr_version = "0.9.0"
+description = "Prefix every tab with its position: 1. {tab_name}"
+platforms = ["linux", "macos"]
+
+[[startup]]
+command = ["sh", "renumber.sh"]
+
+[[actions]]
+id = "renumber"
+title = "Renumber tabs"
+contexts = ["workspace"]
+command = ["sh", "renumber.sh"]
+
+[[events]]
+on = "tab.created"
+command = ["sh", "renumber.sh"]
+
+[[events]]
+on = "tab.closed"
+command = ["sh", "renumber.sh"]
+
+[[events]]
+on = "tab.moved"
+command = ["sh", "renumber.sh"]
+
+[[events]]
+on = "tab.renamed"
+command = ["sh", "renumber.sh"]
+
+[[events]]
+on = "workspace.created"
+command = ["sh", "renumber.sh"]
